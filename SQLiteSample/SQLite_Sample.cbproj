@@ -46,7 +46,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <AllPackageLibs>rtl.lib;vcl.lib</AllPackageLibs>
+        <AllPackageLibs>rtl.lib;vcl.lib;tmsdXE7.lib;adortl.lib;dbrtl.lib;vclx.lib;xmlrtl.lib;vclactnband.lib;vclimg.lib;vcldb.lib;VclSmp.lib</AllPackageLibs>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <ILINK_LibraryPath>C:\Work\01. MJW\01. Project\04. Test\XE7_SQLite_Sample\Source\SQLiteSample\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <RunBCCOutOfProcess>true</RunBCCOutOfProcess>
@@ -104,9 +104,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <ILINK_LibraryPath>$(BDS)\lib\win32\release\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_LibraryPath>C:\Users\Public\Documents\Embarcadero\Studio\15.0\DCP\;$(BDS)\lib\win32\release\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <LinkPackageImports>rtl.bpi;vcl.bpi</LinkPackageImports>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;tmsdXE7.bpi;adortl.bpi;dbrtl.bpi;vclx.bpi;xmlrtl.bpi;vclactnband.bpi;vclimg.bpi;vcldb.bpi;VclSmp.bpi</LinkPackageImports>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <Defines>NDEBUG;$(Defines)</Defines>
@@ -117,7 +117,7 @@
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="Main.cpp">
-            <Form>Form1</Form>
+            <Form>FormMain</Form>
             <FormType>dfm</FormType>
             <DependentOn>Main.h</DependentOn>
             <BuildOrder>2</BuildOrder>
