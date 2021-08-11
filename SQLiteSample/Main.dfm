@@ -4,7 +4,7 @@ object FormMain: TFormMain
   BorderStyle = bsSingle
   Caption = 'SQLite Sample(XE7)'
   ClientHeight = 584
-  ClientWidth = 691
+  ClientWidth = 489
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -20,17 +20,59 @@ object FormMain: TFormMain
   object ___pnBase: TPanel
     Left = 0
     Top = 0
-    Width = 691
+    Width = 489
     Height = 584
     Align = alClient
     BevelOuter = bvNone
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
+    ExplicitLeft = 104
+    ExplicitTop = 64
+    ExplicitWidth = 691
+    object lb_Idx: TLabel
+      Left = 32
+      Top = 32
+      Width = 16
+      Height = 13
+      Caption = 'Idx'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_ID: TLabel
+      Left = 32
+      Top = 59
+      Width = 11
+      Height = 13
+      Caption = 'ID'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lb_PW: TLabel
+      Left = 32
+      Top = 86
+      Width = 16
+      Height = 13
+      Caption = 'PW'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
     object memo: TAdvMemo
       Left = 0
       Top = 413
-      Width = 691
+      Width = 489
       Height = 171
       Cursor = crIBeam
       ActiveLineSettings.ShowActiveLine = False
@@ -140,12 +182,13 @@ object FormMain: TFormMain
       UseStyler = True
       Version = '3.4.1.0'
       WordWrap = wwNone
+      ExplicitWidth = 691
     end
     object DBGrid1: TDBGrid
       Left = 0
-      Top = 312
-      Width = 691
-      Height = 101
+      Top = 240
+      Width = 489
+      Height = 173
       Align = alBottom
       DataSource = DataSource
       Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -156,31 +199,83 @@ object FormMain: TFormMain
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
     end
+    object btn_ADD: TButton
+      Left = 72
+      Top = 120
+      Width = 75
+      Height = 25
+      Caption = 'ADD'
+      TabOrder = 2
+      OnClick = btn_ADDClick
+    end
+    object ed_Idx: TEdit
+      Left = 54
+      Top = 29
+      Width = 121
+      Height = 21
+      TabOrder = 3
+    end
+    object ed_ID: TEdit
+      Left = 54
+      Top = 56
+      Width = 121
+      Height = 21
+      TabOrder = 4
+    end
+    object ed_PW: TEdit
+      Left = 54
+      Top = 83
+      Width = 121
+      Height = 21
+      TabOrder = 5
+    end
+    object btn_DEL: TButton
+      Left = 72
+      Top = 151
+      Width = 75
+      Height = 25
+      Caption = 'DELETE'
+      TabOrder = 6
+    end
+    object btn_Refresh: TButton
+      Left = 72
+      Top = 182
+      Width = 75
+      Height = 25
+      Caption = 'REFRESH'
+      TabOrder = 7
+      OnClick = btn_RefreshClick
+    end
   end
   object FDConnection: TFDConnection
     Params.Strings = (
       
         'Database=C:\Work\01. MJW\01. Project\04. Test\XE7_SQLite_Sample\' +
         'Source\SQLiteSample\Win32\Debug\test.db'
+      'LockingMode=Normal'
       'DriverID=SQLite')
-    Left = 56
-    Top = 24
+    UpdateOptions.AssignedValues = [uvEUpdate, uvLockMode]
+    Left = 348
   end
   object Query: TFDQuery
     Connection = FDConnection
     SQL.Strings = (
       'SELECT * FROM USER_INFO;')
-    Left = 128
-    Top = 24
+    Left = 404
   end
   object FDGUIxWaitCursor: TFDGUIxWaitCursor
     Provider = 'Forms'
-    Left = 224
-    Top = 72
+    Left = 460
   end
   object DataSource: TDataSource
     DataSet = Query
-    Left = 184
-    Top = 32
+    Enabled = False
+    Left = 432
+  end
+  object FDTable: TFDTable
+    Connection = FDConnection
+    UpdateOptions.UpdateTableName = 'USER_INFO'
+    TableName = 'USER_INFO'
+    Left = 376
   end
 end

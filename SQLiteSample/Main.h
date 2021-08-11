@@ -43,7 +43,19 @@ __published:	// IDE-managed Components
 	TFDQuery *Query;
 	TFDGUIxWaitCursor *FDGUIxWaitCursor;
 	TDataSource *DataSource;
+	TButton *btn_ADD;
+	TEdit *ed_Idx;
+	TLabel *lb_Idx;
+	TLabel *lb_ID;
+	TEdit *ed_ID;
+	TEdit *ed_PW;
+	TLabel *lb_PW;
+	TButton *btn_DEL;
+	TButton *btn_Refresh;
+	TFDTable *FDTable;
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall btn_ADDClick(TObject *Sender);
+	void __fastcall btn_RefreshClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormMain(TComponent* Owner);
@@ -53,6 +65,9 @@ public: // Default
 	void __fastcall InitProgram();
 	void __fastcall ExitProgram();
 	void __fastcall PrintMsg(UnicodeString _str);
+
+public: // QUERY
+	void __fastcall RefreshQuery();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFormMain *FormMain;
