@@ -1,7 +1,7 @@
 object FormMain: TFormMain
   Left = 0
   Top = 0
-  BorderStyle = bsDialog
+  BorderStyle = bsSingle
   Caption = 'SQLite Sample(XE7)'
   ClientHeight = 584
   ClientWidth = 691
@@ -27,10 +27,6 @@ object FormMain: TFormMain
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 96
-    ExplicitTop = 120
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object memo: TAdvMemo
       Left = 0
       Top = 413
@@ -113,7 +109,7 @@ object FormMain: TFormMain
         '')
       MarkerList.UseDefaultMarkerImageIndex = False
       MarkerList.DefaultMarkerImageIndex = -1
-      MarkerList.ImageTransparentColor = -1
+      MarkerList.ImageTransparentColor = 33554432
       OleDropTarget = []
       PrintOptions.MarginLeft = 0
       PrintOptions.MarginRight = 0
@@ -144,8 +140,47 @@ object FormMain: TFormMain
       UseStyler = True
       Version = '3.4.1.0'
       WordWrap = wwNone
-      ExplicitTop = 328
-      ExplicitWidth = 685
     end
+    object DBGrid1: TDBGrid
+      Left = 0
+      Top = 312
+      Width = 691
+      Height = 101
+      Align = alBottom
+      DataSource = DataSource
+      Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
+  end
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Work\01. MJW\01. Project\04. Test\XE7_SQLite_Sample\' +
+        'Source\SQLiteSample\Win32\Debug\test.db'
+      'DriverID=SQLite')
+    Left = 56
+    Top = 24
+  end
+  object Query: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT * FROM USER_INFO;')
+    Left = 128
+    Top = 24
+  end
+  object FDGUIxWaitCursor: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 224
+    Top = 72
+  end
+  object DataSource: TDataSource
+    DataSet = Query
+    Left = 184
+    Top = 32
   end
 end
