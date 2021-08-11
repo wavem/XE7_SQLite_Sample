@@ -59,8 +59,6 @@ void __fastcall TFormMain::btn_ADDClick(TObject *Sender)
         return;
     }
 
-    Query->Close();
-
 	// Common
     UnicodeString tempStr = L"";
     int t_Idx = 0;

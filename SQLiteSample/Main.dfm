@@ -269,7 +269,6 @@ object FormMain: TFormMain
   end
   object DataSource: TDataSource
     DataSet = Query
-    Enabled = False
     Left = 432
   end
   object FDTable: TFDTable
