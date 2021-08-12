@@ -117,3 +117,39 @@ void __fastcall TFormMain::btn_RefreshClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFormMain::btn_DELClick(TObject *Sender)
+{
+	// Pre Return
+    if(FDConnection->Connected == false) {
+    	PrintMsg(L"There is no Connection");
+        return;
+    }
+
+    // Common
+    int t_Idx = StrToInt(ed_Idx->Text);
+	UnicodeString t_SQL = L"";
+
+    // Find Routine
+	// Making Query
+	t_SQL = L"SELECT * FROM USER_INFO WHERE IDX = '";
+	t_SQL += IntToStr(t_Idx);
+	t_SQL += L"';";
+
+	// Find User Routine
+	Query_USER->SQL->Clear();
+	Query_USER->SQL->Text = t_SQL;
+	Query_USER->Open();
+
+	if(t_Idx != Query_USER->FieldByName(L"IDX")->AsInteger) {
+    	PrintMsg(L"There is no ID");
+    	return;
+	}
+
+    PrintMsg(L"Find it!");
+
+    t_SQL.sprintf(L"DELETE FROM USER_INFO WHERE IDX = '%d'", t_Idx);
+    Query_USER->SQL->Text = t_SQL;
+    Query_USER->ExecSQL();
+}
+//---------------------------------------------------------------------------
+

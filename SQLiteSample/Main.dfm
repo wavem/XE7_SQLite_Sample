@@ -27,9 +27,6 @@ object FormMain: TFormMain
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 104
-    ExplicitTop = 64
-    ExplicitWidth = 691
     object lb_Idx: TLabel
       Left = 32
       Top = 32
@@ -182,7 +179,6 @@ object FormMain: TFormMain
       UseStyler = True
       Version = '3.4.1.0'
       WordWrap = wwNone
-      ExplicitWidth = 691
     end
     object DBGrid1: TDBGrid
       Left = 0
@@ -236,6 +232,7 @@ object FormMain: TFormMain
       Height = 25
       Caption = 'DELETE'
       TabOrder = 6
+      OnClick = btn_DELClick
     end
     object btn_Refresh: TButton
       Left = 72
@@ -276,5 +273,10 @@ object FormMain: TFormMain
     UpdateOptions.UpdateTableName = 'USER_INFO'
     TableName = 'USER_INFO'
     Left = 376
+  end
+  object Query_USER: TFDQuery
+    Connection = FDConnection
+    Left = 404
+    Top = 28
   end
 end

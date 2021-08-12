@@ -53,9 +53,11 @@ __published:	// IDE-managed Components
 	TButton *btn_DEL;
 	TButton *btn_Refresh;
 	TFDTable *FDTable;
+	TFDQuery *Query_USER;
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall btn_ADDClick(TObject *Sender);
 	void __fastcall btn_RefreshClick(TObject *Sender);
+	void __fastcall btn_DELClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormMain(TComponent* Owner);
